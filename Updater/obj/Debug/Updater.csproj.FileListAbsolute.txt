@@ -1,0 +1,10 @@
+D:\PS\Updater\Updater\obj\Debug\Updater.csproj.AssemblyReference.cache
+D:\PS\Updater\Updater\obj\Debug\Updater.Properties.Resources.resources
+D:\PS\Updater\Updater\obj\Debug\Updater.csproj.GenerateResource.cache
+D:\PS\Updater\Updater\bin\Debug\Updater.exe.config
+D:\PS\Updater\Updater\bin\Debug\Updater.exe
+D:\PS\Updater\Updater\bin\Debug\Updater.pdb
+D:\PS\Updater\Updater\obj\Debug\Updater.Ui.resources
+D:\PS\Updater\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+D:\PS\Updater\Updater\obj\Debug\Updater.exe
+D:\PS\Updater\Updater\obj\Debug\Updater.pdb
