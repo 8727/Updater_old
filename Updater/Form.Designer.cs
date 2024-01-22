@@ -50,10 +50,10 @@
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.LabelInfo = new System.Windows.Forms.Label();
             this.RangeIP.SuspendLayout();
             this.UpdateFile.SuspendLayout();
             this.Updater.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // RangeIP
@@ -112,6 +112,7 @@
             this.Stop_IP.Size = new System.Drawing.Size(183, 26);
             this.Stop_IP.TabIndex = 3;
             this.Stop_IP.Text = "192.168.88.19";
+            this.Stop_IP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Start_IP
             // 
@@ -121,6 +122,7 @@
             this.Start_IP.Size = new System.Drawing.Size(183, 26);
             this.Start_IP.TabIndex = 2;
             this.Start_IP.Text = "192.168.88.11";
+            this.Start_IP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lebel_stop_IP
             // 
@@ -276,7 +278,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listView1);
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.Location = new System.Drawing.Point(8, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1566, 536);
@@ -284,13 +286,30 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.listView1.CheckBoxes = true;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
+            this.listView1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1566, 536);
-            this.listView1.TabIndex = 0;
+            this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // LabelInfo
+            // 
+            this.LabelInfo.AutoSize = true;
+            this.LabelInfo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.LabelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelInfo.ForeColor = System.Drawing.Color.Red;
+            this.LabelInfo.Location = new System.Drawing.Point(564, 214);
+            this.LabelInfo.Name = "LabelInfo";
+            this.LabelInfo.Size = new System.Drawing.Size(438, 108);
+            this.LabelInfo.TabIndex = 0;
+            this.LabelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Ui
             // 
@@ -320,7 +339,6 @@
             this.UpdateFile.PerformLayout();
             this.Updater.ResumeLayout(false);
             this.Updater.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -348,6 +366,7 @@
         private System.Windows.Forms.ProgressBar ProgressBar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label LabelInfo;
     }
 }
 

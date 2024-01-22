@@ -5,6 +5,8 @@ using System.Configuration;
 using System.Collections.Specialized;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Updater
 {
@@ -53,9 +55,26 @@ namespace Updater
                 MessageBox.Show(send, "IP address", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+/*            panel1.Controls.Clear();
+            panel1.Controls.Add(this.LabelInfo);
+            LabelInfo.Text = "Search...";*/
 
+            //panel1.Controls.Clear();
+            //panel1.Controls.Add(this.LabelInfo);
+            //LabelInfo.Text = "Not found.";
+
+            panel1.Controls.Clear();
+            panel1.Controls.Add(this.listView1);
+
+
+
+
+            listView1.Items.Add("12345678fghjkkjnbhvgfcdxxdfghjklijuytfrdsxcvbjkjuytrdfcvbnjkiuytrdfcvbnmjkuytrdfcxvbnmjhuytrdfcxvbnjkuytredfcvbnjkiuytf90-");
+            
 
             Scan_IP.Search();
+
+            //LabelSearch.TabIndex = 1;
 
 
         }
