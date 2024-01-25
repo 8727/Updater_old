@@ -1,12 +1,8 @@
 ﻿using System;
-using System.IO;
-using System.Web.Script.Serialization;
-using System.Configuration;
 using System.Collections.Specialized;
-using System.Windows.Forms;
+using System.Configuration;
 using System.Text.RegularExpressions;
-using System.Drawing;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms;
 
 namespace Updater
 {
@@ -38,15 +34,15 @@ namespace Updater
             bool startIp = regex.IsMatch(Start_IP.Text);
             bool stopIp = regex.IsMatch(Stop_IP.Text);
             string send = "";
-            if(!startIp)
+            if (!startIp)
             {
                 send = $"Incorrect Start address: {Start_IP.Text}";
             };
-            if((!startIp) & (!stopIp))
+            if ((!startIp) & (!stopIp))
             {
                 send += "\n";
             }
-            if(!stopIp)
+            if (!stopIp)
             {
                 send += $"Incorrect Stop address: {Stop_IP.Text}";
             }
@@ -64,12 +60,19 @@ namespace Updater
             //LabelInfo.Text = "Not found.";
 
             panel1.Controls.Clear();
+
+
+            Console.Write("No! ");
+
+
+
+
             panel1.Controls.Add(this.listView1);
 
 
 
 
-            listView1.Items.Add("12345678fghjkkjnbhvgfcdxxdfghjklijuytfrdsxcvbjkjuytrdfcvbnjkiuytrdfcvbnmjkuytrdfcxvbnmjhuytrdfcxvbnjkuytredfcvbnjkiuytf90-");
+
             
 
             Scan_IP.Search();
@@ -93,5 +96,6 @@ namespace Updater
         {
 
         }
+
     }
 }
