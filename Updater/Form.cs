@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Configuration;
+using System.IO;
+using System.IO.Compression;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Utf8Json;
 
 namespace Updater
 {
@@ -17,15 +18,41 @@ namespace Updater
 
         void Ui_Load(object sender, EventArgs e)
         {
-            NameValueCollection sAll;
-            sAll = ConfigurationManager.AppSettings;
+            string conffile = Application.StartupPath.ToString() + "\\updater.conf";
+            if (File.Exists(conffile))
+            {
+                string confjson = File.ReadAllText(conffile);
 
-            foreach (string s in sAll.AllKeys)
-                Stop_IP.Text = ("Key: " + s + " Value: " + sAll.Get(s));
 
-            //Start_IP.Text = sAll.Get("Key0");
-            //Stop_IP.Text = "192.168.88.19";
 
+                // dynamic json deserialize
+                //var json = JsonSerializer.Deserialize<dynamic>(confjson);
+                var json = JsonSerializer.Deserialize<dynamic>(@"{""foo"":""json"",""bar"":100,""nest"":{""foobar"":true}}");
+
+                Start_IP.Text = json["bar"];
+                Stop_IP.Text = confjson.ToString();
+
+                /*var r1 = json["foo"]; // "json" - dynamic(string)
+                var r2 = json["bar"]; // 100 - dynamic(double), it can cast to int or other number.
+                var r3 = json["nest"]["foobar"]; // true*/
+
+
+
+
+
+
+
+
+
+                /* var d = JsonConvert.DeserializeObject<dynamic>(confjson);
+                 Start_IP.Text = d["start_ip"].ToString();*/
+
+
+                //var d = new JavaScriptSerializer().Deserialize<dynamic>(confjson);
+                //Start_IP.Text = w.GetType().Name;
+                Stop_IP.Text = confjson.ToString();
+                //Stop_IP.Text = d[stop_ip].ToString;
+            }
         }
 
         void Search_Click(object sender, EventArgs e)
@@ -51,9 +78,9 @@ namespace Updater
                 MessageBox.Show(send, "IP address", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-/*            panel1.Controls.Clear();
-            panel1.Controls.Add(this.LabelInfo);
-            LabelInfo.Text = "Search...";*/
+            /*            panel1.Controls.Clear();
+                        panel1.Controls.Add(this.LabelInfo);
+                        LabelInfo.Text = "Search...";*/
 
             //panel1.Controls.Clear();
             //panel1.Controls.Add(this.LabelInfo);
@@ -73,7 +100,7 @@ namespace Updater
 
 
 
-            
+
 
             Scan_IP.Search();
 
@@ -94,7 +121,33 @@ namespace Updater
 
         void Update_Click(object sender, EventArgs e)
         {
+            unZip(@"D:\03 decision_1.1.7-dev-tx2.tar.gz", @"D:\2.tar");
+        }
 
+        void unZip(string pathSrc, string pathDest)
+        {
+            try
+            {
+                using (var fs = File.OpenRead(pathSrc))
+                {
+                    using (var decompressor = new GZipStream(fs, CompressionMode.Decompress))
+                    {
+                        using (var output = File.Create(pathDest))
+                        {
+                            byte[] buffer = new byte[2048];
+                            int n;
+                            while ((n = decompressor.Read(buffer, 0, buffer.Length)) > 0)
+                            {
+                                output.Write(buffer, 0, n);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

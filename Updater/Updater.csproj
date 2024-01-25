@@ -53,6 +53,9 @@
     <ApplicationIcon>Updater.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.BZip2">
+      <HintPath>.\Ionic.BZip2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -113,6 +116,11 @@
     <None Include="Resources\save.png" />
     <None Include="Resources\Updater.ico" />
     <Content Include="Updater.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Utf8Json">
+      <Version>1.3.7</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
